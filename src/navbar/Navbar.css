@@ -27,31 +27,3 @@
 
 
 
-.account-icon {
-    animation-name: user;
-    animation-duration:4s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-    width:70px;
-    height: 70px;
-    box-shadow: 1px 3px 7px rgb(72, 72, 72);
-    text-align: center;
-    padding: 15px;
-    border-radius: 50%;
-    z-index: 50;
-    border: transparent;
-    outline: none;
-    background-color: white;
-}
-
-.account-wrapper {
-    position: fixed;
-    bottom: 4%;
-    right:4%;
-}
-
-@keyframes user {
-    0% {color: rgb(255,190,85,1);}
-    100% {color: #B7DFFF;}
-}
-

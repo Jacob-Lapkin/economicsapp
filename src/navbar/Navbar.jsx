@@ -18,11 +18,6 @@ function Navbar() {
           </div>
         </div>
       </nav>
-      <div className="account-wrapper">
-        <button class='account-icon'>
-          <i class="fa-solid fa-book fa-2x user-icon"></i>
-        </button>
-      </div>
     </>
   );
 }

@@ -2,6 +2,7 @@ import "./App.css";
 import Navbar from "./navbar/Navbar";
 import Jumbotron from "./jumbotron/Jumbotron";
 import Card from "./card/Card";
+import Float from "./float/Float";
 import data from "./terms";
 import { useState } from "react";
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
       <Navbar />
+      <Float />
       <Jumbotron onChange={getData} />
       <div className="row-cont">
         <h3 className="text-center">Topics selected from experts</h3>
