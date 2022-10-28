@@ -1,25 +1,27 @@
 import React from 'react'
+import './Navbar.css'
+import logo from './book.png'
 
 function Navbar() {
     return (
         <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light shadow">
-        <div className="container-fluid">
-        <a className="navbar-brand">Econofriend</a>
-    <div className="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul className="navbar-nav">
-        <li className="nav-item">
-          <a className="nav-link active" aria-current="page">Learn</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link">Quiz</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link">Extras</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+        <nav className="container-fluid bg-dark p-2 align-items-center">
+            <div class='nav-cont d-flex justify-content-between'>
+            <div className="container">
+                    <a className="navbar-brand" href="">
+                    <img src={logo} alt="" width="70" height="50"/>
+                    </a>
+                </div>
+                <div className='d-flex'>
+                <a className='nav-link text-white fw-bold'>
+                        Learn
+                    </a>
+                    <a className='nav-link text-white fw-bold'>
+                        Quiz
+                    </a>
+                </div>
+            </div>
+ 
 </nav>
         </>
     )
