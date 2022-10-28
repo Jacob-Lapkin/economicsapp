@@ -1,9 +1,36 @@
 .card-frame {
     width: 18rem;
-    height: 400px;
+    min-height: 440px;
+    border-radius: 5px;
 }
 
 .scope {
     font-size: 14px !important;
     color: grey;
+}
+
+.card-body {
+    min-height: 240px;
+    position: relative;
+}
+
+.card-image {
+    height: 200px;
+    width: 100%;
+}
+
+.topic {
+    color:#629fd0;
+}
+
+.learn-more {
+    position: absolute;
+    bottom: 10px;
+    right:10px;
+    border: transparent;
+    border-radius: 5px;
+    background-color: #FFBE55;
+    padding: 5px 7px;
+    color: black;
+    font-weight: 600;
 }
