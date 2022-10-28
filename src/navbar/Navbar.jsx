@@ -5,17 +5,19 @@ import logo from './book.png'
 function Navbar() {
     return (
         <>
-        <nav className="container-fluid bg-dark p-2 align-items-center">
-            <div class='nav-cont d-flex justify-content-between'>
-            <div className="container">
-                    <a className="navbar-brand" href="">
-                    <img src={logo} alt="" width="70" height="50"/>
+        <nav className="container-fluid p-2 align-items-center nav-wrapper">
+            <div class='nav-cont d-flex justify-content-around'>
+            <div className="">
+                <a className='nav-link text-white fw-bold'>
+                        Explore
                     </a>
                 </div>
-                <div className='d-flex'>
+                <div className=''>
                 <a className='nav-link text-white fw-bold'>
                         Learn
                     </a>
+                </div>
+                <div className=''>
                     <a className='nav-link text-white fw-bold'>
                         Quiz
                     </a>
