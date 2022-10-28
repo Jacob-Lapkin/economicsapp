@@ -1,22 +1,22 @@
 import './Jumbotron.css'
 import React from 'react'
-import {useState} from 'react'
+import {useRef} from 'react'
 
 function Jumbotron(props) {
-    let [term, setTerm] = useState('')
+    let term = useRef('')
     function settingTerm(e) {
-        setTerm(e.target.value)
-        props.onChange(term)
+        
+        props.onChange(term.current.value)
     }
 
     return (
         <>
         <div className='jumbo-container'>
-            <div class='title-div'>
+            <div className='title-div'>
             <p>Economics learning with a touch of fun</p>
             </div>
             <div className='search-container'>
-                <input onChange={settingTerm} placeholder='Search subject' className='search-widget'/>
+                <input ref={term} onChange={settingTerm} placeholder='Search subject' className='search-widget'/>
             </div>
         </div>
         </>
