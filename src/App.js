@@ -17,7 +17,6 @@ function App() {
   return (
     <>
       <Navbar />
-      <Float />
       <Jumbotron onChange={getData} />
       <div className="row-cont">
         <h3 className="text-center">Topics selected from experts</h3>
@@ -32,6 +31,8 @@ function App() {
           ))}
         </div>
       </div>
+      <Float />
+
     </>
   );
 }

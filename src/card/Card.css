@@ -2,7 +2,7 @@
     width: 18rem;
     min-height: 440px;
     border-radius: 5px;
-    z-index: -10;
+    position: static;
 }
 
 .scope {
@@ -13,8 +13,6 @@
 .card-body {
     min-height: 240px;
     position: relative;
-    z-index: -10;
-
 }
 
 .card-image {
@@ -37,7 +35,6 @@
     color: black;
     font-weight: 600;
     transition: background-color .3s;
-    z-index: -10;
 
 }
 
