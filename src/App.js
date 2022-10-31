@@ -1,22 +1,22 @@
 import "./App.css";
-import Navbar from "./navbar/Navbar";
-import Float from "./float/Float";
-import Home from "./Home";
-import About from "./About";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Landing from "./Landing";
+import Logged from "./Logged";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+  const token = localStorage.getItem("token");
+  const [loggedIn, setLoggedIn] = useState()
+  function setLogin() {
+    setLoggedIn(true)
+    console.log('parent Login')
+  }
+  function setlogout() {
+    setLoggedIn(false)
+  }
   return (
-    <>
-      <Router>
-        <Navbar />
-        <Routes>
-        <Route exact path="/" element={<Home/>}></Route>
-        <Route exact path="/about" element={<About/>}></Route>
-        </Routes>
-        <Float />
-      </Router>
-    </>
+    loggedIn?<Logged setlogout={setlogout}/>:<Landing setLogin={setLogin}/>
+    // <Landing/>
   );
 }
 

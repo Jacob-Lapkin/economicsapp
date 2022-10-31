@@ -17,6 +17,11 @@ function Navbar() {
               About
             </Link>
           </div>
+          <div className="">
+            <Link to="/login" className="nav-link text-white fw-bold">
+              Login
+            </Link>
+          </div>
         </div>
       </nav>
     </>

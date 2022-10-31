@@ -1,10 +1,8 @@
 import React from "react";
-import "./App.css";
-import Navbar from "./navbar/Navbar";
-import Jumbotron from "./jumbotron/Jumbotron";
-import Card from "./card/Card";
-import Float from "./float/Float";
-import data from "./terms";
+import './../App.css'
+import Jumbotron from './../jumbotron/Jumbotron'
+import Card from "./../card/Card";
+import data from "./../terms";
 import { useState } from "react";
 
 function Home() {

@@ -1,11 +1,11 @@
 import React from "react";
-import "./App.css";
-import JumbotronTwo from "./jumbotron/Jumbotronabout";
+import "./../App.css";
+import JumbotronTwo from './../jumbotron/Jumbotronabout'
 
 function About() {
   return (
     <>
-        <JumbotronTwo/>
+      <JumbotronTwo/>
       <div className="page-cont">
         <div className="row d-flex justify-content-center">
           <div className="col-md-6 col-sm-12 col-md-4">
