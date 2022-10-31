@@ -43,3 +43,7 @@
   margin:auto;
   padding-top: 40px;
 }
+
+.page-cont {
+  max-width: 1000px;
+}

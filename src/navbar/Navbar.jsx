@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.css";
-import logo from "./book.png";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -8,13 +8,14 @@ function Navbar() {
       <nav className="container-fluid p-2 align-items-center nav-wrapper">
         <div class="nav-cont d-flex justify-content-around">
           <div className="">
-            <a className="nav-link text-white fw-bold">Explore</a>
+            <Link to="/" className="nav-link text-white fw-bold">
+              Explore
+            </Link>
           </div>
           <div className="">
-            <a className="nav-link text-white fw-bold">Learn</a>
-          </div>
-          <div className="">
-            <a className="nav-link text-white fw-bold">Quiz</a>
+            <Link to="/about" className="nav-link text-white fw-bold">
+              About
+            </Link>
           </div>
         </div>
       </nav>
