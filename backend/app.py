@@ -44,9 +44,8 @@ def home():
     print("TESTING THIS ENDPOINT")
     email = get_jwt_identity()
     print(email)
-    user = mongo.db.user.find_one({"email":email})
-    user = json_util.dumps(user)
-    return jsonify(user=user), 200
+    user = mongo.db.user.find_one({"email":email}, { '_id': 0 })
+    return jsonify(user), 200
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

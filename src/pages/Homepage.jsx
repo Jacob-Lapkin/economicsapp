@@ -5,7 +5,8 @@ import {useState} from 'react'
 
 function Homepage(props) {
   const navigate = useNavigate();
-  const [myuser, setMyuser] = useState('')
+  const [myuser, setMyuser] = useState()
+
   function logout() {
     localStorage.clear("token");
     props.setLoggedout();
@@ -18,7 +19,8 @@ function Homepage(props) {
         const response = await fetch(url, {
             'method':"GET", 
             'headers':{
-                Authorization: `Bearer ${localStorage.getItem('token')}`
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type':"application/json"
             }
         })
         const data = await response.json()
@@ -29,13 +31,18 @@ function Homepage(props) {
     }
   }
 
+
   useEffect(()=>{
     getUser()
   }, [])
 
+  if (!myuser) {
+    return 
+  }
   return (
+
     <>
-      <h1>Hello</h1>
+      <h1>Hello World {myuser.first}</h1>
       <button onClick={logout}>Logout</button>
     </>
   );
