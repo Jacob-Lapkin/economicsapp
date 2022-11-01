@@ -46,4 +46,22 @@
 
 .page-cont {
   max-width: 1000px;
+  margin: auto;
+}
+
+
+
+.duo-cont {
+  background-color: #CDE9FF;
+  border-radius: 10px;
+  animation-name:duo;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+
+@keyframes duo {
+  0% {background-color: rgb(255,190,85,1);}
+  100% {background-color: #B7DFFF;}
+
 }
