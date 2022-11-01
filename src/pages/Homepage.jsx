@@ -1,17 +1,41 @@
-import React from "react";
-import {useNavigate} from 'react-router-dom'
+import { React, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import {useState} from 'react'
+
 
 function Homepage(props) {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [myuser, setMyuser] = useState('')
   function logout() {
     localStorage.clear("token");
-    props.setLoggedout()
-    navigate('/login');
-
+    props.setLoggedout();
+    navigate("/login");
   }
+
+  async function getUser() {
+    const url='http://127.0.0.1:5000/home'
+    try {
+        const response = await fetch(url, {
+            'method':"GET", 
+            'headers':{
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        const data = await response.json()
+        setMyuser(data)
+
+    } catch(error) {
+        console.log(error)
+    }
+  }
+
+  useEffect(()=>{
+    getUser()
+  }, [])
+
   return (
     <>
-      <h1>Hello World</h1>
+      <h1>Hello</h1>
       <button onClick={logout}>Logout</button>
     </>
   );
