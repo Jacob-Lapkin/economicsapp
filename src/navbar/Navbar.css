@@ -25,5 +25,42 @@
 
 }
 
+.navlog-wrapper {
+    max-width: 70px;
+    height: 450px;
+    border-radius: 10px;
+    position: fixed;
+    top: 2%;
+    left: 2%;
+    z-index: 50;
+    animation-name: navbar;
+    animation-duration:4s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
 
+.min-button {
+    outline: none;
+    border: transparent;
+    background-color: transparent;
+    color: white;
+}
 
+.minimize {
+    height: 50px !important;
+}
+
+.logout {
+    position: fixed;
+    right:2%;
+    top:2%;
+    z-index: 50;
+    animation-name: navbar;
+    animation-duration:4s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    color: white;
+    padding:10px;
+    border-radius: 10px;
+    border: transparent;
+}

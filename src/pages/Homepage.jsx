@@ -1,11 +1,11 @@
 import { React, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {useState} from 'react'
-
+import { useState } from "react"; 
+import './../navbar/Navbar.css'
 
 function Homepage(props) {
+  const user = props.user;
   const navigate = useNavigate();
-  const [myuser, setMyuser] = useState()
 
   function logout() {
     localStorage.clear("token");
@@ -13,37 +13,14 @@ function Homepage(props) {
     navigate("/login");
   }
 
-  async function getUser() {
-    const url='http://127.0.0.1:5000/home'
-    try {
-        const response = await fetch(url, {
-            'method':"GET", 
-            'headers':{
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
-                'Content-Type':"application/json"
-            }
-        })
-        const data = await response.json()
-        setMyuser(data)
-
-    } catch(error) {
-        console.log(error)
-    }
-  }
-
-
-  useEffect(()=>{
-    getUser()
-  }, [])
-
-  if (!myuser) {
-    return 
+  if (!user) {
+    return;
   }
   return (
-
     <>
-      <h1>Hello World {myuser.first}</h1>
-      <button onClick={logout}>Logout</button>
+      <button className="logout" onClick={logout}>
+      <i class="fa-solid fa-door-open fa-2x"></i>
+      </button>
     </>
   );
 }

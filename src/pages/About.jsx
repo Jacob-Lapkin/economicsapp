@@ -50,7 +50,7 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="container-fluid p-4 mt-3">
+      <div className="container-fluid p-4 mt-5">
         <div className="page-cont">
           <div className="row d-flex justify-content-center align-items-center">
             <div className="col-md-6 col-lg-6 col-sm-12">
