@@ -44,7 +44,8 @@ def home():
     print("TESTING THIS ENDPOINT")
     email = get_jwt_identity()
     print(email)
-    user = mongo.db.user.find_one({"email":email}, { '_id': 0 })
+    user = mongo.db.user.find_one({"email":email})
+    user["_id"] = str(user['_id'])
     return jsonify(user), 200
 
 if __name__ == "__main__":
