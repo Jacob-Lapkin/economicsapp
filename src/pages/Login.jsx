@@ -2,6 +2,9 @@ import { React } from "react";
 import { useRef } from "react";
 import "./Login.css";
 import {useNavigate} from 'react-router-dom'
+import Navbar from "../navbar/Navbar";
+import Float from "../float/Float";
+
 
 function Login(props) {
   const emailRef = useRef();
@@ -39,6 +42,7 @@ function Login(props) {
 // Returing JSX
   return (
     <>
+    <Navbar/>
       <div className="login-cont">
         <h1>Login</h1>
         <form onSubmit={submitForm}>
@@ -73,6 +77,7 @@ function Login(props) {
           </button>
         </form>
       </div>
+      <Float/>
     </>
   );
 }

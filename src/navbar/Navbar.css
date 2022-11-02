@@ -27,28 +27,20 @@
 
 .navlog-wrapper {
     max-width: 70px;
-    height: 450px;
-    border-radius: 10px;
+    height: 100vh;
+    border-radius: 0px ;
     position: fixed;
-    top: 2%;
+    top: 0%;
     left: 0%;
     z-index: 50;
     animation-name: navbar;
     animation-duration:4s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
+    box-shadow: 0px 3px 7px grey;
 }
 
-.min-button {
-    outline: none;
-    border: transparent;
-    background-color: transparent;
-    color: white;
-}
 
-.minimize {
-    height: 50px !important;
-}
 
 .logout {
     position: fixed;

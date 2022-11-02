@@ -2,10 +2,13 @@ import React from "react";
 import "./../App.css";
 import JumbotronTwo from "./../jumbotron/Jumbotronabout";
 import image1 from './../images/about1.jpg'
+import Navbar from "../navbar/Navbar";
+import Float from './../float/Float'
 
 function About() {
   return (
     <>
+    <Navbar/>
       <JumbotronTwo />
       <div className="page-cont">
         <div className="mt-4">
@@ -49,8 +52,7 @@ function About() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="container-fluid p-4 mt-5">
+        <div className="container-fluid p-4 mt-5">
         <div className="page-cont">
           <div className="row d-flex justify-content-center align-items-center">
             <div className="col-md-6 col-lg-6 col-sm-12">
@@ -65,6 +67,8 @@ function About() {
           </div>
         </div>
       </div>
+      </div>
+      <Float/>
     </>
   );
 }

@@ -24,9 +24,8 @@ function Homepage(props) {
         <i class="fa-solid fa-door-open fa-2x"></i>
       </button>
       <div className="dash-cont">
-
       <div className="row">
-        <div className="col-md-6 col-lg-6 col-sm-12">
+        <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="row p-4">
             <div className="shadow rounded p-4 d-flex flex-row justify-content-around">
               <div className="d-flex flex-column justify-content-around">
@@ -51,7 +50,7 @@ function Homepage(props) {
 
           </div>
         </div>
-        <div className="col-md-6 col-lg-6 col-sm-12">
+        <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="row p-4">
 
           </div>

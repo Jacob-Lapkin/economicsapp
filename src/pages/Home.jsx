@@ -4,6 +4,8 @@ import Jumbotron from './../jumbotron/Jumbotron'
 import Card from "./../card/Card";
 import data from "./../terms";
 import { useState } from "react";
+import Navbar from "../navbar/Navbar";
+import Float from "../float/Float";
 
 function Home() {
   const [search, setSearch] = useState("");
@@ -15,6 +17,7 @@ function Home() {
   }
   return (
     <>
+    <Navbar/>
       <Jumbotron onChange={getData} />
       <div className="row-cont">
         <h3 className="text-center">Topics selected from experts</h3>
@@ -29,6 +32,8 @@ function Home() {
           ))}
         </div>
       </div>
+      <Float/>
+
     </>
   );
 }
