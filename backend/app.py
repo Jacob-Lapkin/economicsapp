@@ -6,10 +6,19 @@ from dotenv import load_dotenv
 import os
 from flask_pymongo import PyMongo
 from bson import json_util
+from newsapi import NewsApiClient
+from datetime import date, timedelta
+
+todays_date = date.today()
+
+
 
 app = Flask("__name__")
 
 load_dotenv()
+
+newsapi = NewsApiClient(api_key=os.getenv('newsapi'))
+
 
 app.config['SECRET_KEY'] = "FILL THIS IS LATER"
 app.config["MONGO_URI"] = 'mongodb+srv://jakethenapkin:{password}@cluster0.njun9ub.mongodb.net/economics?retryWrites=true&w=majority'.format(password=os.getenv('password'))
@@ -48,5 +57,37 @@ def home():
     user["_id"] = str(user['_id'])
     return jsonify(user), 200
 
+@app.route('/news', methods=['GET'])
+def news():
+    print(todays_date)
+    if request.method == "POST":
+        return jsonify(message='test post')
+    if request.method== 'GET':
+        data = request.args.get('headline')
+        if data:
+            from_date = todays_date - - timedelta(days=10)
+            print(from_date)
+            all_articles = newsapi.get_everything(q=data, 
+                                            from_param=from_date,
+                                            to=todays_date,
+                                            language='en',
+                                            sort_by='relevancy',
+                                            page=2)
+            articles = all_articles['articles'][0]
+            return jsonify(articles=articles), 200
+        else: 
+            from_date = todays_date - - timedelta(days=10)
+            print(from_date)
+            all_articles = newsapi.get_everything(q='economics', 
+                                            from_param=from_date,
+                                            to=todays_date,
+                                            language='en',
+                                            sort_by='relevancy',
+                                            page=2)
+            articles = all_articles['articles'][0]
+            return jsonify(articles=articles), 200
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
+
+    
