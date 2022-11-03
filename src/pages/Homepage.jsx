@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./../navbar/Navbar.css";
 import "./../App.css"
-import image1 from './../images/about1.jpg'
+import Welcome from "../homepage/Welcome";
+import News from "../homepage/News";
 
 function Homepage(props) {
   const user = props.user;
@@ -27,24 +28,10 @@ function Homepage(props) {
       <div className="row">
         <div className="col-md-12 col-lg-6 col-sm-12">
           <div className="row p-4">
-            <div className="shadow rounded p-4 d-flex flex-row justify-content-around">
-              <div className="d-flex flex-column justify-content-around">
-              <h2>Welcome back, {user.first}</h2>
-              <p className="text-secondary">Rating: {user.rating}/10</p>
-              </div>
-              <div>
-              <img src={image1} height="150" className="rounded"/>
-
-              </div>
-            </div>
+          <Welcome first={user.first}  rating={user.rating}/>
           </div>
-          <div className="row">
-            <div className="col-md-6 col-lg-6 col-sm-12 p-4">
-
-            </div>
-            <div className="col-md-6 col-lg-6 col-sm-12 p-4">
-
-            </div>
+          <div className="row p-4">
+            <News/>
           </div>
           <div className="row p-4">
 
