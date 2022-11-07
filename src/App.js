@@ -40,6 +40,7 @@ function App() {
   return (
     loggedIn?<Logged setlogout={setlogout}/>:<Landing setLogin={setLogin}/>
     // <Landing/>
+    
   );
 }
 

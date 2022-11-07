@@ -17,8 +17,8 @@ function Float() {
         <div className={status?"float-div":""}>
 
         </div>
-        <button class={status?"account-icon active":"account-icon"} onClick={changeStatus}>
-          <i class="fa-solid fa-book fa-2x user-icon"></i>
+        <button className={status?"account-icon active":"account-icon"} onClick={changeStatus}>
+          <i className="fa-solid fa-book fa-2x user-icon"></i>
         </button>
       </div>
     </>

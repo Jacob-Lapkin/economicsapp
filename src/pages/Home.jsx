@@ -22,12 +22,12 @@ function Home() {
       <div className="row-cont">
         <h3 className="text-center">Topics selected from experts</h3>
         <div className="row">
-          {filterItems.map((termData) => (
+          {filterItems.map((termData, i) => (
             <Card
               topic={termData.topic}
               description={termData.description}
               scope={termData.scope}
-              image={termData.image}
+              image={termData.image} key={i}
             />
           ))}
         </div>

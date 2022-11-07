@@ -32,16 +32,16 @@ CORS(app)
 
 @app.route('/login', methods=['POST'])
 def login():
-    
     user = request.get_json()
     if 'email' not in user.keys() and 'password' not in user.keys():
         return jsonify(message='missing data'), 400
+
     email = user['email']
     password = user['password']
-    user = mongo.db.user.find_one({'email':email})
-    if user == None:
+    user_find = mongo.db.user.find_one({'email':email})
+    if user_find == None:
         return jsonify(message="user does not exist"), 400
-    if user['password'] != password:
+    if user_find['password'] != password:
         return jsonify(message='Incorrect password'), 401
     token = create_access_token(email)
     return jsonify(message='Successfully logged in', token=token), 200
@@ -50,10 +50,10 @@ def login():
 @app.route('/home', methods=['GET'])
 @jwt_required()
 def home():
-    print("TESTING THIS ENDPOINT")
     email = get_jwt_identity()
-    print(email)
     user = mongo.db.user.find_one({"email":email})
+    if not user:
+        return jsonify("Obtaining user failed"), 400
     user["_id"] = str(user['_id'])
     return jsonify(user), 200
 
