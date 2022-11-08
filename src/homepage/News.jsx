@@ -1,14 +1,34 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import './News.css'
 import image from './../images/about1.jpg'
+import './../pages/Login.css'
+import { useAsyncError } from "react-router-dom";
 
 function News() {
   const [news, setNews] = useState();
+  const searchingTerm = useRef()
 
   async function getNews() {
+    const randomWords = ['economics', 'money', 'employment', 'stocks']
     try {
-      const response = await fetch('http://127.0.0.1:5000/news',{
+      const response = await fetch(`http://127.0.0.1:5000/news?headline=${randomWords[Math.ceil(Math.random() * (randomWords.length - 1))]}`,{
+        methods:"GET",
+        headers: {
+          Authorization: `bearer ${localStorage.getItem('token')}`
+        }
+      })
+      const data = await response.json()
+      console.log(data)
+      setNews(data)
+    } catch(error) {
+      console.log(error)
+    }
+  }
+
+  async function searchEcon() {
+    try {
+      const response = await fetch(`http://127.0.0.1:5000/news?headline=${searchingTerm.current.value}`,{
         methods:"GET",
         headers: {
           Authorization: `bearer ${localStorage.getItem('token')}`
@@ -31,11 +51,13 @@ function News() {
   return (
   <>
   <div className="news-cont rounded shadow p-3">
-  <div className="search-container">
+  <div className="search-container d-flex flex-row gap-3">
           <input
-            placeholder="Search news"
+            placeholder="Search Term"
             className="search-widget"
+            ref={searchingTerm}
           />
+          <button className="button-primary" onClick={searchEcon}>Search</button>
         </div>
     <div className="headline">
         <p className="h5 fw-bold text-white">{news.articles.title}</p>
@@ -46,7 +68,7 @@ function News() {
         </div>
     </div>
     <div className="button-div">
-      <a href={news.articles.url} className="link-primary">Learn More</a>
+      <a target="_blank" href={news.articles.url} className="link-primary">Learn More</a>
     </div>
     <img className='image rounded' src={news.articles.urlToImage}/>
     

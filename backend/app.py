@@ -59,14 +59,12 @@ def home():
 
 @app.route('/news', methods=['GET'])
 def news():
-    print(todays_date)
     if request.method == "POST":
         return jsonify(message='test post')
     if request.method== 'GET':
         data = request.args.get('headline')
         if data:
-            from_date = todays_date - - timedelta(days=10)
-            print(from_date)
+            from_date = todays_date - timedelta(days=10)
             all_articles = newsapi.get_everything(q=data, 
                                             from_param=from_date,
                                             to=todays_date,
@@ -76,8 +74,7 @@ def news():
             articles = all_articles['articles'][0]
             return jsonify(articles=articles), 200
         else: 
-            from_date = todays_date - - timedelta(days=10)
-            print(from_date)
+            from_date = todays_date - timedelta(days=10)
             all_articles = newsapi.get_everything(q='economics', 
                                             from_param=from_date,
                                             to=todays_date,
